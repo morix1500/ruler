@@ -145,7 +145,7 @@ func (c *CLI) ruler(lines [][]string) error {
 		}
 		fmt.Fprintln(c.outStream, "")
 		// last line
-		if i == len(lines) -1 {
+		if i == len(lines)-1 {
 			fmt.Fprintln(c.outStream, brank_line)
 		}
 	}
