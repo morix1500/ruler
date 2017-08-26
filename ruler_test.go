@@ -117,8 +117,7 @@ func TestTextAlign(t *testing.T) {
 }
 
 func TestHeaderless(t *testing.T) {
-	test_record := `column1,column2,column3,column4
-1,2,3,4
+	test_record := `1,2,3,4
 5,6,,7
 8,,,9
 `
@@ -137,11 +136,11 @@ func TestHeaderless(t *testing.T) {
 		t.Errorf("status should be %d, but %d", 0, status)
 	}
 
-	want :=  `+---------+---------+---------+---------+
-| 1       | 2       | 3       | 4       |
-| 5       | 6       |         | 7       |
-| 8       |         |         | 9       |
-+---------+---------+---------+---------+
+	want :=  `+---+---+---+---+
+| 1 | 2 | 3 | 4 |
+| 5 | 6 |   | 7 |
+| 8 |   |   | 9 |
++---+---+---+---+
 `
 	result := outStream.String()
 	if result != want {

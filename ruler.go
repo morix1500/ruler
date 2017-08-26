@@ -126,12 +126,13 @@ func (c *CLI) ruler(lines [][]string) error {
 	for i, line := range lines {
 		if i == 0 {
 			brank_line, head_line = createHeader(line, len_arr)
-			if !headerless {
-				fmt.Fprintln(c.outStream, brank_line)
-				fmt.Fprintln(c.outStream, head_line)
-			}
 			fmt.Fprintln(c.outStream, brank_line)
-			continue
+
+			if !headerless {
+				fmt.Fprintln(c.outStream, head_line)
+				fmt.Fprintln(c.outStream, brank_line)
+				continue
+			}
 		}
 
 		for j, column := range line {
