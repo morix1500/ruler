@@ -88,7 +88,12 @@ $ cat hoge.csv | ruler -n
 ```
 
 ## Installation
+Executable binaries are available at [releases](https://github.com/morix1500/go-ruler/releases).
 
+```
+$ wget https://github.com/morix1500/go-ruler/releases/download/v0.1.0/ruler_linux_amd64 -O ruler
+$ chmod a+x ruler
+```
 
 ## License
 Please see the [LICENSE](./LICENSE) file for details.  
