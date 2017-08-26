@@ -154,14 +154,21 @@ func (c *CLI) ruler(lines [][]string) error {
 }
 
 func (c *CLI) Run(args []string) int {
+	var version bool
 	flags := flag.NewFlagSet("ruler", flag.ContinueOnError)
 	flags.SetOutput(c.errStream)
 	flags.StringVar(&file_type, "f", "csv", "Specify the format. [csv/tsv/ltsv]")
 	flags.StringVar(&text_align, "a", "right", "Specify the text align. [right/left]")
 	flags.BoolVar(&headerless, "n", false, "Specify when there is no header.")
+	flags.BoolVar(&version, "v", false, "Output version number.")
 
 	if err := flags.Parse(args[1:]); err != nil {
 		return 1
+	}
+
+	if version {
+		fmt.Fprintln(c.outStream, Version)
+		return 0
 	}
 
 	if text_align == "right" {
