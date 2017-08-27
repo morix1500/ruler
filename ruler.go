@@ -80,11 +80,11 @@ func times(str string, n int) (out string) {
 }
 
 func padRight(str string, length int, pad string) string {
-	return str + times(pad, length-runewidth.StringWidth(str))
+	return times(pad, length-runewidth.StringWidth(str)) + str
 }
 
 func padLeft(str string, length int, pad string) string {
-	return times(pad, length-runewidth.StringWidth(str)) + str
+	return str + times(pad, length-runewidth.StringWidth(str))
 }
 
 func createHeader(header_line []string, len_arr []int) (brank_line string, head_line string) {
@@ -159,7 +159,7 @@ func (c *CLI) Run(args []string) int {
 	flags := flag.NewFlagSet("ruler", flag.ContinueOnError)
 	flags.SetOutput(c.errStream)
 	flags.StringVar(&file_type, "f", "csv", "Specify the format. [csv/tsv/ltsv]")
-	flags.StringVar(&text_align, "a", "right", "Specify the text align. [right/left]")
+	flags.StringVar(&text_align, "a", "left", "Specify the text align. [right/left]")
 	flags.BoolVar(&headerless, "n", false, "Specify when there is no header.")
 	flags.BoolVar(&version, "v", false, "Output version number.")
 

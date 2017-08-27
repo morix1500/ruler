@@ -90,7 +90,7 @@ func TestTextAlign(t *testing.T) {
 	outStream, errStream := new(bytes.Buffer), new(bytes.Buffer)
 	cli := &CLI{outStream: outStream, errStream: errStream}
 
-	args := strings.Split("ruler -a left", " ")
+	args := strings.Split("ruler -a right", " ")
 
 	var status int
 

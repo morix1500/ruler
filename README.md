@@ -25,7 +25,7 @@ $ cat hoge.csv | ruler
 ```
 Usage of ruler:
   -a string
-        Specify the text align. [right/left] (default "right")
+        Specify the text align. [right/left] (default "left")
   -f string
         Specify the format. [csv/tsv/ltsv] (default "csv")
   -n    Specify when there is no header.
@@ -33,10 +33,10 @@ Usage of ruler:
 ```
 
 ### Specify the text align
-Default "right".
+Default "left".
 
 ```
-$ cat hoge.csv | ruler -a left
+$ cat hoge.csv | ruler -a right
 #+---------+---------+---------+---------+
 #| column1 | column2 | column3 | column4 |
 #+---------+---------+---------+---------+
